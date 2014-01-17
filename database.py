@@ -1,3 +1,3 @@
 from pymongo import MongoClient
-client = MongoClient()
-db = client.database.mycalendar
+client = MongoClient('localhost', 27017)
+db = client.mycalendar

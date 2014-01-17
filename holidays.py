@@ -13,4 +13,12 @@ for year in range(currentYear, currentYear+yearsToScrape):
      holidays = holidays + dk_holidays.holidays(year)["days"]
 
 for holiday in holidays:
-    db.holidays.insert(holiday)
+    db.holidays.update(
+        {
+            "link" : holiday["link"],
+            "country" : holiday["country"],
+            "year" : holiday["year"]
+        },
+        holiday,
+        upsert=True
+    )
