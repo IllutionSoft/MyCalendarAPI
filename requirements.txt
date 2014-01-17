@@ -1,6 +1,4 @@
 eve
-datetime
-dateutil
-time
+python-dateutil
 flask
 pymongo
