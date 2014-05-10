@@ -1,4 +1,5 @@
 from scrapers import dk_holidays
+from scrapers import us_holidays
 from pymongo import *
 from datetime import *
 from database import *
@@ -11,6 +12,7 @@ holidays = []
 
 for year in range(currentYear, currentYear+yearsToScrape):
      holidays = holidays + dk_holidays.holidays(year)["days"]
+     holidays = holidays + us_holidays.holidays(year)["days"]
 
 for holiday in holidays:
     db.holidays.update(
